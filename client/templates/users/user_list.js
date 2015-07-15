@@ -12,7 +12,6 @@ var usersData = [
   url: 'http://themeteorbook.com'
  }
 ];
-
 Template.usersList.helpers({
 users: usersData
 });
