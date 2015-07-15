@@ -5,11 +5,14 @@
 	
 	// Check if the user has been here before
 	function loggedInBefore() {
+	
 	}
 
     // Handle the successful return from the API call
     function onSuccess(data) {
         console.log(data);
+		var loggedUser = Meteor.LinkedInUsers.insert({ firstname: data.firstName });
+		console.log(data.firstName);
     }
 
     // Handle an error response from the API call
@@ -19,8 +22,7 @@
 
     // Use the API call wrapper to request the member's profile data
     function getProfileData() {
-        IN.API.Raw("/people/~")
-.result(onSuccess).error(onError);
+        IN.API.Raw("/people/~").result(onSuccess).error(onError);
     }
 	
 	logoutUser = function logoutUser() {
