@@ -1,0 +1,38 @@
+<head>
+<script type="text/javascript" src="//platform.linkedin.com/in.js">
+    api_key:   77fkpt0trz146t
+	authorize: true
+	lang:   nl_NL
+	onLoad: onLinkedInLoad
+</script>
+<title>HubFinder Index</title>
+</head>
+<body>
+<nav class="navbar navbar-default">
+ <div class="navbar-header">
+  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+   <span class="sr-only">Toggle navigation</span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+  </button>
+  <a class="navbar-brand" href="">HubFinder</a>
+ </div>
+ <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  <ul class="nav navbar-nav navbar-right">
+   <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+   <li><a onclick="logoutUser();return false;"><script type="in/Login">Logout</script></a></li>
+  </ul>
+ </div>
+</nav>
+<div class="container">
+ <div class="jumbotron">
+   <h1>HubFinder</h1>
+   <p>Hier zouden we wat informatie kunnen zetten (een plaatje of iets anders leuks).</p>
+   <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+ </div>
+</div>
+<div id="main">
+{{> postsList}}
+</div>
+</body>
