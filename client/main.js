@@ -15,7 +15,7 @@
 
     // Use the API call wrapper to request the member's profile data
     function getProfileData() {
-        IN.API.Raw("/people/~:(first-name)")
+        IN.API.Raw("/people/~")
 .result(onSuccess).error(onError);
     }
 	
