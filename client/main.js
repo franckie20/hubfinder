@@ -2,6 +2,10 @@
     onLinkedInLoad = function onLinkedInLoad() {
         IN.Event.on(IN, "auth", getProfileData);
     }
+	
+	// Check if the user has been here before
+	function loggedInBefore() {
+	}
 
     // Handle the successful return from the API call
     function onSuccess(data) {

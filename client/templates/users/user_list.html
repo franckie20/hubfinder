@@ -1,7 +1,7 @@
 <template name="usersList">
- <div class="users">
-  {{#each users}}
-    {{> userProfile}}
-  {{/each}}
- </div>
+ <ul class="nav nav-pills nav-stacked">
+   {{#each users}}
+     {{> userProfile}}
+   {{/each}}
+ </ul>
 </template>

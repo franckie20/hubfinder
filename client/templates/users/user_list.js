@@ -1,14 +1,14 @@
 var usersData = [
  {
-  title: 'Introducing Telescope',
+  name: 'Jasper de Waard',
   url: 'http://sachagreif.com/introducing-telescope/'
  },
  {
-  title: 'Meteor',
+  name: 'Franck Verschuur',
   url: 'http://meteor.com'
  },
  {
-  title: 'The Meteor Book',
+  name: 'Alex Jongman',
   url: 'http://themeteorbook.com'
  }
 ];
