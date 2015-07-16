@@ -18,10 +18,6 @@
         console.log(data);
     }
 	
-	getUserFirstname = function getUserFirstname() {
-		return userFirstname;
-	}
-	
     // Handle an error response from the API call
     function onError(error) {
         console.log(error);
