@@ -8,9 +8,7 @@
     onSuccess = function onSuccess(data) {
 		
 		userFirstname = data.firstName;
-		document.getElementById("fname").innerHTML = "Firstname: " + userFirstname; 
 		userLastname = data.lastName;
-		document.getElementById("lname").innerHTML = "Lastname: " + userLastname; 
 		
 		var userWithSameId = LoggedUser.findOne({userid: data.id});
 		if(userWithSameId == null) {
