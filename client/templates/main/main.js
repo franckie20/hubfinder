@@ -21,6 +21,11 @@
 		Meteor.call('setLoginStateTrue', function(error, result) {
 			 Session.set('setLoginStateResult', result);
 		});
+		
+		// Set the User profile object
+		Meteor.call('setProfileUser', data.id, function(error, result) {
+			 Session.set('setProfileUserResult', result);
+		});
 
 		console.log(userWithSameId);
         console.log(data);

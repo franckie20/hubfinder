@@ -8,8 +8,25 @@
   </div>
 
   
-  <div class="panel-body">
-	{{> usersList }}
+  <div class="panel-body col-md-6">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+		<h3 class="panel-title">Firstname</h3>
+	  </div>
+	  <div class="panel-body">
+		{{ userObject.firstname }}
+	  </div>
+	</div>
+  </div>
+  <div class="panel-body col-md-6">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+		<h3 class="panel-title">Lastname</h3>
+	  </div>
+	  <div class="panel-body">
+		{{ userObject.lastname }}
+	  </div>
+	</div>
   </div>
   
 </div>
