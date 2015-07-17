@@ -4,16 +4,29 @@
         IN.Event.on(IN, "auth", getProfileData);
     }
 	
+	var userLoggedIn = false;
+	
+	loggedIn = function loggedIn() {
+		return userLoggedIn;
+	}
+	
     // Handle the successful return from the API call
     onSuccess = function onSuccess(data) {
 		
 		userFirstname = data.firstName;
 		userLastname = data.lastName;
+		userLoggedIn = true;
 		
 		var userWithSameId = LoggedUser.findOne({userid: data.id});
 		if(userWithSameId == null) {
 			Meteor.call('insertUserName', data.id, data.firstName, data.lastName);
 		}
+		
+		// Set the login state to true
+		Meteor.call('setLoginStateTrue', function(error, result) {
+			 Session.set('setLoginStateResult', result);
+		});
+
 		console.log(userWithSameId);
         console.log(data);
     }
@@ -32,6 +45,11 @@
 	}
 
 	logoutSucces = function logoutSucces() {
+		window.location.href = "/logout";
+		// Set the login state to true
+		Meteor.call('setLoginStateFalse', function(error, result) {
+			 Session.set('setLoginStateResult', result);
+		});
 		console.log("Logout successful!");
 	}
 

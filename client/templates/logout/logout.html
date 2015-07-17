@@ -1,24 +1,17 @@
-<template name="profile">
+<template name="logout">
 {{#if isLoggedIn}}
-<div class="container">
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h3 class="panel-title">Hubfinder - Profile</h3>
-  </div>
-
-  
-  <div class="panel-body">
-	{{> usersList }}
-  </div>
-  
-</div>
-</div>
-{{else}}
 <div class="container">
  <div class="alert alert-dismissible alert-danger">
   <button type="button" class="close" data-dismiss="alert">×</button>
   <strong>Oh snap!</strong> <a href="#" class="alert-link">Make sure to login before visiting</a> and try again.
+ </div>
 </div>
+{{else}}
+<div class="container">
+ <div class="alert alert-dismissible alert-success">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>Success!</strong> <a href="#" class="alert-link">Thanks</a> for using Hubfinder.
+ </div>
 </div>
 {{/if}}
 </template>
