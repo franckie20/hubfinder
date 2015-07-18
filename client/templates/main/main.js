@@ -37,7 +37,10 @@
     }
     // Use the API call wrapper to request the member's profile data
     getProfileData = function getProfileData() {
-		IN.API.Raw("/people/~").result(onSuccess).error(onError);
+		// If the user is already authorized don't fetch his or her profile again.
+		if(IN.User.isAuthorized() == false) {
+			IN.API.Raw("/people/~").result(onSuccess).error(onError);
+		}
     }
 
 	logoutUser = function logoutUser() {
