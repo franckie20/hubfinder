@@ -1,7 +1,16 @@
 
 	// Setup an event listener to make an API call once auth is complete
     onLinkedInLoad = function onLinkedInLoad() {
-        IN.Event.on(IN, "auth", getProfileData);
+		// If the user is not authorized fetch the linkedin profile
+		if(IN.User.isAuthorized() == false) {
+			IN.Event.on(IN, "auth", getProfileData);
+		}
+		else {
+			// Set the login state to true
+			Meteor.call('setLoginStateTrue', function(error, result) {
+			 Session.set('setLoginStateResult', result);
+			});
+		}
     }
 	
 	var userLoggedIn = false;
@@ -37,10 +46,7 @@
     }
     // Use the API call wrapper to request the member's profile data
     getProfileData = function getProfileData() {
-		// If the user is already authorized don't fetch his or her profile again.
-		if(IN.User.isAuthorized() == false) {
-			IN.API.Raw("/people/~").result(onSuccess).error(onError);
-		}
+		IN.API.Raw("/people/~").result(onSuccess).error(onError);
     }
 
 	logoutUser = function logoutUser() {
