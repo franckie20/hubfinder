@@ -14,7 +14,7 @@
 		
 		var userWithSameId = LoggedUser.findOne({userid: data.id});
 		if(userWithSameId == null) {
-			Meteor.call('insertUserName', data.id, data.firstName, data.lastName, data.emailAddress, data.headline, data.pictureUrl, data.numConnections);
+			Meteor.call('insertUserName', data.id, data.firstName, data.lastName, data.emailAddress, data.headline, data.pictureUrl, data.numConnections, data.summary);
 		}
 		
 		// Set the login state to true
@@ -37,7 +37,7 @@
     }
     // Use the API call wrapper to request the member's profile data
     getProfileData = function getProfileData() {
-		IN.API.Raw("/people/~:(id,first-name,last-name,headline,email-address,num-connections,picture-url)").result(onSuccess).error(onError);
+		IN.API.Raw("/people/~:(id,first-name,last-name,headline,email-address,num-connections,picture-url,summary)").result(onSuccess).error(onError);
     }
 
 	logoutUser = function logoutUser() {

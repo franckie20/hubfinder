@@ -1,8 +1,8 @@
 <template name="profile">
 {{#if isLoggedIn}}
 <div class="container">
-	<div class="jumbotron">
-		<p>This page holds profile information for users on hubfinder</p>
+	<div class="jumbotron col-md-12">
+		<h2><img src="{{ userObject.picture}}"/> {{ userObject.firstname }} {{ userObject.lastname }}</h2>
 	</div>
 </div>
 
@@ -25,20 +25,10 @@
   <div class="panel-body col-md-6">
 	<div class="panel panel-default">
 	  <div class="panel-heading">
-		<h3 class="panel-title">Firstname</h3>
+		<h3 class="panel-title">Email</h3>
 	  </div>
 	  <div class="panel-body">
-		{{ userObject.firstname }}
-	  </div>
-	</div>
-  </div>
-  <div class="panel-body col-md-6">
-	<div class="panel panel-default">
-	  <div class="panel-heading">
-		<h3 class="panel-title">Lastname</h3>
-	  </div>
-	  <div class="panel-body">
-		{{ userObject.lastname }}
+		{{ userObject.email }}
 	  </div>
 	</div>
   </div>
@@ -52,13 +42,13 @@
 	  </div>
 	</div>
   </div>
-  <div class="panel-body col-md-6">
+  <div class="panel-body col-md-12">
 	<div class="panel panel-default">
 	  <div class="panel-heading">
-		<h3 class="panel-title">Picture</h3>
+		<h3 class="panel-title">Summary</h3>
 	  </div>
 	  <div class="panel-body">
-		<img src="{{ userObject.picture }}"/>
+		{{ userObject.summary }}
 	  </div>
 	</div>
   </div>
