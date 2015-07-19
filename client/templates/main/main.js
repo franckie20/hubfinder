@@ -9,14 +9,28 @@
     // Handle the successful return from the API call
     onSuccess = function onSuccess(data) {
 		
-		userFirstname = data.firstName;
-		userLastname = data.lastName;
+		userFirstname = data.firstName; userLastname = data.lastName; userEmail = data.emailAddress; 
+		userHeadline = data.headline; userPicture = data.pictureUrl; userConnections = data.numConnections;
+		userId = data.id; userSummary = data.summary;
 		
-		var userWithSameId = LoggedUser.findOne({userid: data.id});
+		var userWithSameId = LoggedUser.findOne({userid: userId});
 		if(userWithSameId == null) {
-			Meteor.call('insertUserName', data.id, data.firstName, data.lastName, data.emailAddress, data.headline, data.pictureUrl, data.numConnections, data.summary);
+			Meteor.call('insertUserName', userId, userFirstname, userLastname, userEmail, userHeadline, userPicture, userConnections, userSummary);
 		}
 		
+		onLoginSuccess(data);
+		
+		// Update the MongoDB information (If there's a LinkedIn profile update)
+		LoggedUser.update(
+			{_id: userWithSameId._id}, 
+			{$set: {firstname: userFirstname, lastname: userLastname, email: userEmail, headline: userHeadline, picture: userPicture, connections: userConnections, summary: userSummary}}
+		);
+
+		console.log(userWithSameId);
+        console.log(data);
+    }
+	
+	function onLoginSuccess(data) {
 		// Set the login state to true
 		Meteor.call('setLoginStateTrue', function(error, result) {
 			 Session.set('setLoginStateResult', result);
@@ -26,10 +40,7 @@
 		Meteor.call('setProfileUser', data.id, function(error, result) {
 			 Session.set('setProfileUserResult', result);
 		});
-
-		console.log(userWithSameId);
-        console.log(data);
-    }
+	}
 	
     // Handle an error response from the API call
     function onError(error) {
@@ -46,7 +57,7 @@
 
 	logoutSucces = function logoutSucces() {
 		window.location.href = "/logout";
-		// Set the login state to true
+		// Set the login state to false
 		Meteor.call('setLoginStateFalse', function(error, result) {
 			 Session.set('setLoginStateResult', result);
 		});
