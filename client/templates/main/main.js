@@ -16,18 +16,20 @@
 		var userWithSameId = LoggedUser.findOne({userid: userId});
 		if(userWithSameId == null) {
 			Meteor.call('insertUserName', userId, userFirstname, userLastname, userEmail, userHeadline, userPicture, userConnections, userSummary);
+			onLoginSuccess(data);
 		}
-		
-		// Update the MongoDB information (If there's a LinkedIn profile update)
-		LoggedUser.update(
-			{_id: userWithSameId._id}, 
-			{$set: {firstname: userFirstname, lastname: userLastname, email: userEmail, headline: userHeadline, picture: userPicture, connections: userConnections, summary: userSummary}}
-		);
-		
-		onLoginSuccess(data);
+		else {
+			// Update the MongoDB information (If there's a LinkedIn profile update)
+			LoggedUser.update(
+				{_id: userWithSameId._id}, 
+				{$set: {firstname: userFirstname, lastname: userLastname, email: userEmail, headline: userHeadline, picture: userPicture, connections: userConnections, summary: userSummary}}
+			);
+			
+			onLoginSuccess(data);
 
-		console.log(userWithSameId);
-        console.log(data);
+			console.log(userWithSameId);
+			console.log(data);
+		}
     }
 	
 	function onLoginSuccess(data) {
