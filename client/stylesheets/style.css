@@ -4291,7 +4291,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-left: 0;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 1685px) {
 #sidebar-wrapper {
 	width: 250px;
   }
