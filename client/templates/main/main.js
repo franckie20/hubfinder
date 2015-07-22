@@ -11,11 +11,15 @@
 
 		userFirstname = data.firstName; userLastname = data.lastName; userEmail = data.emailAddress;
 		userHeadline = data.headline; userPicture = data.pictureUrl; userConnections = data.numConnections;
-		userId = data.id; userSummary = data.summary;
+		userId = data.id; userSummary = data.summary; userLanguage = "NL";
 
 		var userWithSameId = LoggedUser.findOne({userid: userId});
 		if(userWithSameId == null) {
-			Meteor.call('insertUserName', userId, userFirstname, userLastname, userEmail, userHeadline, userPicture, userConnections, userSummary);
+      // Set the firstlogin state to true
+      Meteor.call('setFirstLoginStateTrue', function(error, result) {
+         Session.set('setFirstLoginStateResult', result);
+      });
+			Meteor.call('insertUserName', userId, userFirstname, userLastname, userEmail, userHeadline, userPicture, userConnections, userSummary, userLanguage);
 			onLoginSuccess(data);
 		}
 		else {
@@ -24,6 +28,11 @@
 				{_id: userWithSameId._id},
 				{$set: {firstname: userFirstname, lastname: userLastname, email: userEmail, headline: userHeadline, picture: userPicture, connections: userConnections, summary: userSummary}}
 			);
+
+      // Set the firstlogin state to false
+      Meteor.call('setFirstLoginStateFalse', function(error, result) {
+         Session.set('setFirstLoginStateResult', result);
+      });
 
 			onLoginSuccess(data);
 
