@@ -11,7 +11,7 @@
 
 		userFirstname = data.firstName; userLastname = data.lastName; userEmail = data.emailAddress;
 		userHeadline = data.headline; userPicture = data.pictureUrl; userConnections = data.numConnections;
-		userId = data.id; userSummary = data.summary; userLanguage = "NL";
+		userId = data.id; userSummary = data.summary;
 
 		var userWithSameId = LoggedUser.findOne({userid: userId});
 		if(userWithSameId == null) {
@@ -19,7 +19,7 @@
       Meteor.call('setFirstLoginStateTrue', function(error, result) {
          Session.set('setFirstLoginStateResult', result);
       });
-			Meteor.call('insertUserName', userId, userFirstname, userLastname, userEmail, userHeadline, userPicture, userConnections, userSummary, userLanguage);
+			Meteor.call('insertUserName', userId, userFirstname, userLastname, userEmail, userHeadline, userPicture, userConnections, userSummary);
 			onLoginSuccess(data);
 		}
 		else {
