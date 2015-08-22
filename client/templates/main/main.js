@@ -13,7 +13,7 @@
 		userHeadline = data.headline; userPicture = data.pictureUrl; userConnections = data.numConnections;
 		userId = data.id; userSummary = data.summary;
 
-		var userWithSameId = LoggedUser.findOne({userid: userId});
+		var userWithSameId = hubUsers.findOne({userid: userId});
 		if(userWithSameId == null) {
       // Set the firstlogin state to true
       Meteor.call('setFirstLoginStateTrue', function(error, result) {
@@ -24,7 +24,7 @@
 		}
 		else {
 			// Update the MongoDB information (If there's a LinkedIn profile update)
-			LoggedUser.update(
+			hubUsers.update(
 				{_id: userWithSameId._id},
 				{$set: {firstname: userFirstname, lastname: userLastname, email: userEmail, headline: userHeadline, picture: userPicture, connections: userConnections, summary: userSummary}}
 			);
