@@ -1,4 +1,5 @@
 <template name="addSkills">
+  {{#if isLoggedIn}}
   <div class="container">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -70,6 +71,14 @@
       </div>
     </div>
   </div>
+  {{else}}
+  <div class="container">
+   <div class="alert alert-dismissible alert-danger">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>Oh snap!</strong> <a href="#" class="alert-link">Make sure to login before visiting</a> and try again.
+   </div>
+  </div>
+  {{/if}}
 </template>
 
 <template name="skills">
