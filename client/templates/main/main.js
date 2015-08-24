@@ -66,6 +66,15 @@
 		IN.User.logout(logoutSucces);
 	}
 
+  insertNewSkill = function insertNewSkill(skill, description) {
+    	Meteor.call('insertSkill', skill, description, skill);
+      alert("Skill " + skill + " toegevoegd aan de algemene lijst met skills!");
+  }
+
+  toTitleCase = function toTitleCase(str) {
+      return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+  }
+
   updateSkills = function updateSkills(skill, userid) {
     hubUsers.update(
       {_id: userid},

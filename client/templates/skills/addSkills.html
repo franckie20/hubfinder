@@ -35,41 +35,43 @@
             </div>
       	</div>
       </div>
-      <div class="panel-body col-md-6">
-      	<div class="panel panel-default">
-      	  <div class="panel-heading">
-      		<h3 class="panel-title">Skill naam</h3>
-      	  </div>
-        	  <div class="panel-body">
-              <input type="text" class="form-control" name="name" value="" placeholder="Naam van de nieuwe skill"/>
-            </div>
-      	</div>
+      <form name="newSkill" id="newSkill">
+        <div class="panel-body col-md-6">
+        	<div class="panel panel-default">
+        	  <div class="panel-heading">
+        		<h3 class="panel-title">Skill naam</h3>
+        	  </div>
+          	  <div class="panel-body">
+                <input type="text" class="form-control" name="skill" value="" placeholder="Naam van de nieuwe skill"/>
+              </div>
+        	</div>
+        </div>
+        <div class="panel-body col-md-6">
+        	<div class="panel panel-default">
+        	  <div class="panel-heading">
+        		<h3 class="panel-title">Skill afbeelding</h3>
+        	  </div>
+          	  <div class="panel-body">
+                <label for="file-upload" class="custom-file-upload">
+                  <i class="glyphicon glyphicon-upload"></i> Afbeelding kiezen
+                </label>
+                <input id="file-upload" type="file" name="afbeelding"/>
+              </div>
+        	</div>
+        </div>
+        <div class="panel-body col-md-12">
+        	<div class="panel panel-default">
+        	  <div class="panel-heading">
+        		<h3 class="panel-title">Skill omschrijving</h3>
+        	  </div>
+          	  <div class="panel-body">
+                <input type="text" class="form-control" name="description" value="" placeholder="Omschrijving van de nieuwe skill"/>
+              </div>
+        	</div>
+          <input class="btn btn-primary btn-block" type="submit" value="Nieuwe skill toevoegen">
+        </div>
+        </form>
       </div>
-      <div class="panel-body col-md-6">
-      	<div class="panel panel-default">
-      	  <div class="panel-heading">
-      		<h3 class="panel-title">Skill afbeelding</h3>
-      	  </div>
-        	  <div class="panel-body">
-              <label for="file-upload" class="custom-file-upload">
-                <i class="glyphicon glyphicon-upload"></i> Afbeelding kiezen
-              </label>
-              <input id="file-upload" type="file" name="afbeelding"/>
-            </div>
-      	</div>
-      </div>
-      <div class="panel-body col-md-12">
-      	<div class="panel panel-default">
-      	  <div class="panel-heading">
-      		<h3 class="panel-title">Skill omschrijving</h3>
-      	  </div>
-        	  <div class="panel-body">
-              <input type="text" class="form-control" name="description" value="" placeholder="Omschrijving van de nieuwe skill"/>
-            </div>
-      	</div>
-        <input class="btn btn-primary btn-block" type="submit" value="Nieuwe skill toevoegen">
-      </div>
-    </div>
   </div>
   {{else}}
   <div class="container">

@@ -18,8 +18,6 @@ Template.addSkills.events({
 
       skillExists = hubSkills.findOne({name: skill});
 
-      // Controle voor bestaande skill invoeren
-
       if(skill.length >= 3) {
         if(skillExists) {
           updateSkills(skill, userid);
@@ -31,5 +29,29 @@ Template.addSkills.events({
       else {
         alert('Skill moet minstens 3 karakters lang zijn!');
       }
-    }
+    },
+    'submit #newSkill': function(e, t) {
+      e.preventDefault();
+
+      var skillForm = $(e.currentTarget),
+        skill = event.target.skill.value;
+        newSkillName = toTitleCase(skill);
+
+        description = event.target.description.value;
+        newDescription = toTitleCase(description);
+
+        skillExists = hubSkills.findOne({name: newSkillName});
+
+        if(skill.length >= 3) {
+          if(skillExists == null) {
+            insertNewSkill(newSkillName, newDescription);
+          }
+          else {
+            alert('Skill komt al voor in de database!');
+          }
+        }
+        else {
+          alert('Skill moet minstens 3 karakters lang zijn!');
+        }
+      },
 });
