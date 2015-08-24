@@ -11,7 +11,7 @@
 
 		userFirstname = data.firstName; userLastname = data.lastName; userEmail = data.emailAddress;
 		userHeadline = data.headline; userPicture = data.pictureUrl; userConnections = data.numConnections;
-		userId = data.id; userSummary = data.summary;
+		userId = data.id; userSummary = data.summary; userSkills = [];
 
 		var userWithSameId = hubUsers.findOne({userid: userId});
 		if(userWithSameId == null) {
@@ -19,7 +19,7 @@
       Meteor.call('setFirstLoginStateTrue', function(error, result) {
          Session.set('setFirstLoginStateResult', result);
       });
-			Meteor.call('insertUserName', userId, userFirstname, userLastname, userEmail, userHeadline, userPicture, userConnections, userSummary);
+			Meteor.call('insertUserName', userId, userFirstname, userLastname, userEmail, userHeadline, userPicture, userConnections, userSummary, userSkills);
 			onLoginSuccess(data);
 		}
 		else {
@@ -65,6 +65,15 @@
 	logoutUser = function logoutUser() {
 		IN.User.logout(logoutSucces);
 	}
+
+  updateSkills = function updateSkills(skill, userid) {
+    hubUsers.update(
+      {_id: userid},
+      {$addToSet: {skills: {$each: [skill] }}}
+    );
+
+    alert("Skill " + skill + " toegevoegd aan de lijst met skills!");
+  }
 
 	logoutSucces = function logoutSucces() {
 		window.location.href = "/logout";
