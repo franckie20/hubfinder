@@ -19,3 +19,5 @@ npm-container
 iron:router
 mfpierre:chartist-js
 sergeyt:typeahead
+cfs:standard-packages
+cfs:gridfs

@@ -8,18 +8,63 @@
       <div class="panel-body col-md-12">
       	<div class="panel panel-default">
       	  <div class="panel-heading">
-      		<h3 class="panel-title">Definiëren</h3>
+      		<h3 class="panel-title">Definiëren <span class="glyphicon glyphicon-search" aria-hidden="true"></span></h3>
       	  </div>
         	  <div class="panel-body">
 
               <div class="form-group">
                 <input class="form-control typeahead" name="skills" type="text"
-                       placeholder="Hubfinder skills"
+                       placeholder="Hubfinder skills zoeken..."
                        autocomplete="off" spellcheck="off"
                        data-source="hubSkills" data-template="skills"/>
               </div>
             </div>
       	</div>
+        <input class="btn btn-primary btn-block" type="submit" value="Skill toevoegen">
+      </div>
+      <div class="panel-body col-md-12">
+      	<div class="panel panel-default">
+      	  <div class="panel-heading">
+      		<h3 class="panel-title">Skill toevoegen <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></h3>
+      	  </div>
+        	  <div class="panel-body">
+              Uw skill staat niet in de lijst? Voeg hem toe zodat die toegankelijk is voor iedereen!
+            </div>
+      	</div>
+      </div>
+      <div class="panel-body col-md-6">
+      	<div class="panel panel-default">
+      	  <div class="panel-heading">
+      		<h3 class="panel-title">Skill naam</h3>
+      	  </div>
+        	  <div class="panel-body">
+              <input type="text" class="form-control" name="name" value="" placeholder="Naam van de nieuwe skill"/>
+            </div>
+      	</div>
+      </div>
+      <div class="panel-body col-md-6">
+      	<div class="panel panel-default">
+      	  <div class="panel-heading">
+      		<h3 class="panel-title">Skill afbeelding</h3>
+      	  </div>
+        	  <div class="panel-body">
+              <label for="file-upload" class="custom-file-upload">
+                <i class="glyphicon glyphicon-upload"></i> Afbeelding kiezen
+              </label>
+              <input id="file-upload" type="file" name="afbeelding"/>
+            </div>
+      	</div>
+      </div>
+      <div class="panel-body col-md-12">
+      	<div class="panel panel-default">
+      	  <div class="panel-heading">
+      		<h3 class="panel-title">Skill omschrijving</h3>
+      	  </div>
+        	  <div class="panel-body">
+              <input type="text" class="form-control" name="description" value="" placeholder="Omschrijving van de nieuwe skill"/>
+            </div>
+      	</div>
+        <input class="btn btn-primary btn-block" type="submit" value="Nieuwe skill toevoegen">
       </div>
     </div>
   </div>
