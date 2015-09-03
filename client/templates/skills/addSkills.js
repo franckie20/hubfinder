@@ -9,7 +9,7 @@ Template.addSkills.rendered = function() {
 }
 
 Template.addSkills.events({
-  'submit #updateSkills': function(e) {
+  'submit #updateSkills': function(e, t) {
     e.preventDefault();
 
     var skillForm = $(e.currentTarget),
@@ -31,8 +31,7 @@ Template.addSkills.events({
       }
     },
 
-
-    'submit #newSkill': function(e) {
+    'submit #newSkill': function(e, t) {
       e.preventDefault();
 
       var skillForm = $(e.currentTarget),
@@ -52,7 +51,6 @@ Template.addSkills.events({
             alert('Skill komt al voor in de database!');
           }
         }
-        //hij pakt deze elke keer
         else {
           alert('Skill moet minstens 3 karakters lang zijn!');
         }
