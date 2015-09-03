@@ -13,14 +13,19 @@
   <ul class="nav navbar-nav navbar-right">
     <li><a href="/"><span class="glyphicon glyphicon-home"></span></a></li>
 	{{#if isLoggedIn}}
+
+        <li><a href="skills"><span class="glyphicon glyphicon-plus"></span></a></li>
+        <li><a href="/dashboard"><span class="glyphicon glyphicon-dashboard"></span></a></li>
+
 	<li class="dropdown">
+
 	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
 	<ul class="dropdown-menu" role="menu">
        <li><a href="profile">Show profile</a></li>
        <li><a href="logout">Logout</a></li>
 	</ul>
 	</li>
-	<li><a href="/dashboard"><span class="glyphicon glyphicon-dashboard"></span></a></li>
+
 	{{else}}
 	<li><a><script type="in/Login">Logout</script></a></li>
 	{{/if}}

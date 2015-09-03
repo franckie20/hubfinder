@@ -12,6 +12,26 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+.bar {
+  fill: steelblue;
+}
+.bar:hover {
+  fill: brown;
+}
+.axis {
+  font: 10px sans-serif;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.x.axis path {
+  display: none;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;

@@ -3,3 +3,4 @@ users: function() {
 return hubUsers.find();
 }
 });
+

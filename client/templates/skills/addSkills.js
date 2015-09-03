@@ -9,7 +9,7 @@ Template.addSkills.rendered = function() {
 }
 
 Template.addSkills.events({
-  'submit #updateSkills': function(e, t) {
+  'submit #updateSkills': function(e) {
     e.preventDefault();
 
     var skillForm = $(e.currentTarget),
@@ -30,7 +30,9 @@ Template.addSkills.events({
         alert('Skill moet minstens 3 karakters lang zijn!');
       }
     },
-    'submit #newSkill': function(e, t) {
+
+
+    'submit #newSkill': function(e) {
       e.preventDefault();
 
       var skillForm = $(e.currentTarget),
@@ -39,6 +41,8 @@ Template.addSkills.events({
 
         description = event.target.description.value;
         newDescription = toTitleCase(description);
+
+        skillVanUser = event.target.description.value;
 
         skillExists = hubSkills.findOne({name: newSkillName});
 
@@ -50,6 +54,7 @@ Template.addSkills.events({
             alert('Skill komt al voor in de database!');
           }
         }
+        //hij pakt deze elke keer
         else {
           alert('Skill moet minstens 3 karakters lang zijn!');
         }
