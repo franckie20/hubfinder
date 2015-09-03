@@ -67,7 +67,7 @@
 	}
 
   insertNewSkill = function insertNewSkill(skill, description) {
-    	Meteor.call('insertSkill', skill, description);
+    	Meteor.call('insertSkill', skill, description, skill);
       alert("Skill " + skill + " toegevoegd aan de algemene lijst met skills!");
   }
 
