@@ -42,8 +42,6 @@ Template.addSkills.events({
         description = event.target.description.value;
         newDescription = toTitleCase(description);
 
-        skillVanUser = event.target.description.value;
-
         skillExists = hubSkills.findOne({name: newSkillName});
 
         if(skill.length >= 3) {
