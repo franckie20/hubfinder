@@ -17,13 +17,21 @@ Template.addSkills.events({
       userid = event.target.userid.value;
 
       skillExists = hubSkills.findOne({name: skill});
+      skillAlreadyInList = hubUsers.findOne({skills: [skill]})
 
       if(skill.length >= 3) {
-        if(skillExists) {
-          updateSkills(skill, userid);
+        if(skillAlreadyInList == null) {
+          if(skillExists) {
+            var skillID = skillExists._id;
+            var amount = skillExists.amount;
+            updateSkills(skill, userid, skillID, amount);
+          }
+          else {
+            alert('Skill komt niet voor in de database!');
+          }
         }
         else {
-          alert('Skill komt niet voor in de database!');
+          alert('Skill staat al in je lijst!');
         }
       }
       else {

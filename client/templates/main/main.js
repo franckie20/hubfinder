@@ -39,7 +39,7 @@
 			console.log(userWithSameId);
 			console.log(data);
 		}
-    }
+  }
 
 	function onLoginSuccess(data) {
 		// Set the login state to true
@@ -75,10 +75,15 @@
       return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
   }
 
-  updateSkills = function updateSkills(skill, userid) {
+  updateSkills = function updateSkills(skill, userid, skillID, amount) {
     hubUsers.update(
       {_id: userid},
       {$addToSet: {skills: {$each: [skill] }}}
+    );
+
+    hubSkills.update(
+      {_id: skillID},
+      {$set: {amount: amount + 1}}
     );
 
     alert("Skill " + skill + " toegevoegd aan de lijst met skills!");
