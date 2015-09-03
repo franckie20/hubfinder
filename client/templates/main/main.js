@@ -89,6 +89,10 @@
     alert("Skill " + skill + " toegevoegd aan de lijst met skills!");
   }
 
+  getAllHubSkills = function getAllHubSkills() {
+    return hubSkills.find({}, {sort: {amount: -1}}).fetch();
+  }
+
 	logoutSucces = function logoutSucces() {
 		window.location.href = "/logout";
 		// Set the login state to false
