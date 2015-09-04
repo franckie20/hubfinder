@@ -17,7 +17,7 @@ Template.addSkills.events({
       userid = event.target.userid.value;
 
       skillExists = hubSkills.findOne({name: skill});
-      skillAlreadyInList = hubUsers.findOne({skills: [skill]})
+      skillAlreadyInList = hubUsers.findOne({skills: skill})
 
       if(skill.length >= 3) {
         if(skillAlreadyInList == null) {
