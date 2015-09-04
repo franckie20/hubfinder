@@ -23,8 +23,8 @@ Template.addSkills.events({
         if(skillAlreadyInList == null) {
           if(skillExists) {
             var skillID = skillExists._id;
-            var amount = skillExists.amount;
-            updateSkills(skill, userid, skillID, amount);
+            var key = skillExists.key;
+            updateSkills(skill, userid, skillID, key);
           }
           else {
             alert('Skill komt niet voor in de database!');

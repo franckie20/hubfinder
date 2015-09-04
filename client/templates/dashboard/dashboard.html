@@ -10,15 +10,39 @@
                         <h3 class="panel-title">Top5 meest populaire skills</h3>
                     </div>
                     <div class="panel-body">
-                        <div class="ct-chart"></div>
+                      <script>
+
+                      var processed_json = new Array();
+                      $.map(Session.get('topGraphSkills'), function(obj, i) {
+                          processed_json.push([obj.name, parseInt(obj.key)]);
+                      });
+
+                      $(function () {
+                        $('#graph-container').highcharts({
+                            chart: {
+                              type: 'column'
+                            },
+                              title: {
+                              text: 'Top 5 popular skills'
+                            },
+                            subtitle: {
+                              text: 'Hubfinder'
+                            },
+                            xAxis: {
+                              type: "category"
+                            },
+                            series: [
+                                {
+                                  name: 'Skills',
+                                  data: processed_json
+                                }
+                              ]
+                        });
+                      });
+                      </script>
+                      <div id="graph-container" class="graph-container"></div>
 
                     </div>
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Top5 minst populaire skills</h3>
-                    </div>
-
-
-
                 </div>
             </div>
         </div>

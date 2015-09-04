@@ -47,6 +47,8 @@
 			 Session.set('setLoginStateResult', result);
 		});
 
+    Session.set('topGraphSkills', getAllHubSkills());
+
 		// Set the User profile object
 		Meteor.call('setProfileUser', data.id, function(error, result) {
 			 Session.set('setProfileUserResult', result);
@@ -75,7 +77,7 @@
       return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
   }
 
-  updateSkills = function updateSkills(skill, userid, skillID, amount) {
+  updateSkills = function updateSkills(skill, userid, skillID, key) {
     hubUsers.update(
       {_id: userid},
       {$addToSet: {skills: {$each: [skill] }}}
@@ -83,14 +85,14 @@
 
     hubSkills.update(
       {_id: skillID},
-      {$set: {amount: amount + 1}}
+      {$set: {key: key + 1}}
     );
 
     alert("Skill " + skill + " toegevoegd aan de lijst met skills!");
   }
 
   getAllHubSkills = function getAllHubSkills() {
-    return hubSkills.find({}, {sort: {amount: -1}}).fetch();
+    return hubSkills.find({}, {sort: {key: -1}, limit:5}).fetch();
   }
 
 	logoutSucces = function logoutSucces() {
