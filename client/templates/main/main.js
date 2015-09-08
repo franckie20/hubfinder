@@ -73,16 +73,19 @@
       alert("Skill " + skill + " toegevoegd aan de algemene lijst met skills!");
   }
 
+  // Alle eerste letters (alleen) omzetten naar een hoofdletter om zo verkeerde/dubbele te in de collection te vermijden
   toTitleCase = function toTitleCase(str) {
       return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
   }
 
   updateSkills = function updateSkills(skill, userid, skillID, key) {
+    // Voeg de skills toe aan de gebruiker die ingelogd is...
     hubUsers.update(
       {_id: userid},
       {$addToSet: {skills: {$each: [skill] }}}
     );
 
+    // Teller voor de top 5 skills etc..
     hubSkills.update(
       {_id: skillID},
       {$set: {key: key + 1}}
