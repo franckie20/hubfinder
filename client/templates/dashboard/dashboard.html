@@ -20,21 +20,48 @@
                       $(function () {
                         $('#graph-container').highcharts({
                             chart: {
-                              type: 'column'
+                              type: 'column',
+                              backgroundColor:'#4e5d6c'
                             },
-                              title: {
-                              text: 'Top 5 popular skills'
+                            legend: {
+                              itemStyle: {
+                                  color: '#FFF',
+                                  fontWeight: 'normal'
+                              },
+                            },
+                            title: {
+                              text: 'Top 5 skills',
+                              style: {
+                                color: '#FFF',
+                                fontWeight: 'bold'
+                              }
                             },
                             subtitle: {
-                              text: 'Hubfinder'
+                              text: 'Hubfinder',
+                              style: {
+                                color: '#FFF',
+                              }
                             },
                             xAxis: {
-                              type: "category"
+                              type: "category",
+                              labels: {
+                                 style: {
+                                    color: '#FFF'
+                                 }
+                              }
+                            },
+                            yAxis: {
+                              labels: {
+                                style: {
+                                  color: '#FFF'
+                                }
+                              }
                             },
                             series: [
                                 {
                                   name: 'Skills',
-                                  data: processed_json
+                                  data: processed_json,
+                                  color: '#df691a'
                                 }
                               ]
                         });
