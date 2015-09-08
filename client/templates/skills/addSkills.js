@@ -60,7 +60,7 @@ Template.addSkills.events({
           }
         }
         else {
-          alert('Skill moet minstens 3 karakters lang zijn!');;;;;
+          alert('Skill moet minstens 3 karakters lang zijn!');
         }
       },
 });
