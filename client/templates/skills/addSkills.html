@@ -19,6 +19,7 @@
                        autocomplete="off" spellcheck="off"
                        data-source="hubSkills" data-template="skills"/>
                 <input class="form-control" name="userid" type="hidden" value="{{ userObject._id }}"/>
+                <input class="form-control" name="linkedInID" type="hidden" value="{{ userObject.userid }}"/>
               </div>
             </div>
       	</div>
@@ -70,7 +71,7 @@
         		<h3 class="panel-title">Skill omschrijving</h3>
         	  </div>
           	  <div class="panel-body">
-                <input type="text" class="form-control" name="description" value="" placeholder="Omschrijving van de nieuwe skill"/>
+                <textarea class="form-control" rows="4" form="newSkill" name="description" style="resize: vertical;" placeholder="Omschrijving van de nieuwe skill" id="textArea" maxlength="5000"></textarea>
               </div>
         	</div>
           <input class="btn btn-primary btn-block" type="submit" value="Nieuwe skill toevoegen">

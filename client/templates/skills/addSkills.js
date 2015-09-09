@@ -15,6 +15,7 @@ Template.addSkills.events({
     var skillForm = $(e.currentTarget),
       skill = event.target.skill.value;
       userid = event.target.userid.value;
+      linkedInID = event.target.linkedInID.value;
 
       skillExists = hubSkills.findOne({name: skill});
       skillAlreadyInList = hubUsers.findOne({skills: skill})
@@ -25,6 +26,10 @@ Template.addSkills.events({
             var skillID = skillExists._id;
             var key = skillExists.key;
             updateSkills(skill, userid, skillID, key);
+            // Set the User profile object for when switchting to the profile page (Auto-update)
+        		Meteor.call('setProfileUser', linkedInID, function(error, result) {
+        			 Session.set('setProfileUserResult', result);
+        		});
           }
           else {
             alert('Skill komt niet voor in de database!');
