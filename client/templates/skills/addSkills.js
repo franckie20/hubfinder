@@ -30,6 +30,7 @@ Template.addSkills.events({
         		Meteor.call('setProfileUser', linkedInID, function(error, result) {
         			 Session.set('setProfileUserResult', result);
         		});
+            Session.set('topGraphSkills', getAllHubSkills());
           }
           else {
             alert('Skill komt niet voor in de database!');
