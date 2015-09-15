@@ -58,11 +58,11 @@
 				<h3 class="panel-title">Skills</h3>
 			</div>
 			<div class="panel-body">
-				<ul class="nav nav-pills nav-stacked">
-						{{#each userObject.skills }}
-		 					{{> profileSkills}}
-						{{/each}}
-				</ul>
+				<form class="nav nav-pills nav-stacked" id="profileRemoveSkill">
+					{{#each userObject.skills }}
+					 	{{> profileSkills}}
+					{{/each}}
+				</form>
 			</div>
 		</div>
 			<a href="/skills" class="btn btn-primary btn-block">Skills toevoegen</a>
