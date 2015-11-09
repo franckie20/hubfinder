@@ -12,7 +12,7 @@
                     <div class="panel-body">
                       <script>
 
-                      var processed_json = new Array();
+                      var processed_json = [];
                       $.map(Session.get('topGraphSkills'), function(obj, i) {
                           processed_json.push([obj.name, parseInt(obj.key)]);
                       });
@@ -39,7 +39,7 @@
                             subtitle: {
                               text: 'Hubfinder',
                               style: {
-                                color: '#FFF',
+                                color: '#FFF'
                               }
                             },
                             credits: {
@@ -71,7 +71,6 @@
                       });
                       </script>
                       <div id="graph-container" class="graph-container"></div>
-
                     </div>
                 </div>
             </div>

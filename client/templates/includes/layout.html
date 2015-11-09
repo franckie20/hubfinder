@@ -1,10 +1,8 @@
 <template name="layout">
-	
-  {{> navigation}}
+    {{> navigation}}
+    {{> yield}}
 
-  {{> yield}}
-  
-  <footer>
+    <footer>
     {{> yield "footer"}}
-  </footer>
+    </footer>
 </template>

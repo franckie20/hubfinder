@@ -1,6 +1,6 @@
 Template.usersList.helpers({
-users: function() {
-return hubUsers.find();
-}
+    users: function() {
+        return hubUsers.find();
+    }
 });
 

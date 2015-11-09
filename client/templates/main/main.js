@@ -1,5 +1,6 @@
 /**
  linkedIn API en login calls zitten nu in server/linkedInAPI
+ Als het goed is moet dat nog steeds werken met de api key in main.html
  */
 
 insertNewSkill = function insertNewSkill(skill, description) {

@@ -1,12 +1,12 @@
 Template.addSkills.helpers({
   hubSkills: function() {
-   return hubSkills.find().fetch();
+    return hubSkills.find().fetch();
   }
 });
 
 Template.addSkills.rendered = function() {
     Meteor.typeahead.inject();
-}
+};
 
 Template.addSkills.events({
   'submit #updateSkills': function(e, t) {
@@ -68,5 +68,5 @@ Template.addSkills.events({
         else {
           alert('Skill moet minstens 3 karakters lang zijn!');
         }
-      },
+      }
 });
