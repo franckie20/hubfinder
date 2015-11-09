@@ -1,0 +1,81 @@
+<template name="profile">
+{{#if isLoggedIn}}
+<div class="container">
+	<div class="jumbotron col-md-12">
+		<h2><img src="{{ userObject.picture}}"/> {{ userObject.firstname }} {{ userObject.lastname }}</h2>
+	</div>
+</div>
+
+<div class="container">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Hubfinder - Profiel</h3>
+  </div>
+
+  <div class="panel-body col-md-12">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+		<h3 class="panel-title">Headline</h3>
+	  </div>
+	  <div class="panel-body">
+			{{ userObject.headline }}
+	  </div>
+	</div>
+  </div>
+  <div class="panel-body col-md-6">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+		<h3 class="panel-title">Email</h3>
+	  </div>
+	  <div class="panel-body">
+			{{ userObject.email }}
+	  </div>
+	</div>
+  </div>
+  <div class="panel-body col-md-6">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+		<h3 class="panel-title">Connections</h3>
+	  </div>
+	  <div class="panel-body">
+			{{ userObject.connections }}
+	  </div>
+	</div>
+  </div>
+  <div class="panel-body col-md-12">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+		<h3 class="panel-title">Summary</h3>
+	  </div>
+	  <div class="panel-body">
+			{{ userObject.summary }}
+	  </div>
+	</div>
+	</div>
+	<div class="panel-body col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Skills</h3>
+			</div>
+			<div class="panel-body">
+				<form class="nav nav-pills nav-stacked" id="profileRemoveSkill">
+					{{#each userObject.skills }}
+					 	{{> profileSkills}}
+					{{/each}}
+				</form>
+			</div>
+		</div>
+			<a href="/skills" class="btn btn-primary btn-block">Skills toevoegen</a>
+	</div>
+</div>
+
+</div>
+{{else}}
+<div class="container">
+ <div class="alert alert-dismissible alert-danger">
+  <button type="button" class="close" data-dismiss="alert">×</button>
+  <strong>Oh snap!</strong> <a href="#" class="alert-link">Make sure to login before visiting</a> and try again.
+ </div>
+</div>
+{{/if}}
+</template>
