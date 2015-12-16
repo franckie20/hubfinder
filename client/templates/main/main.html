@@ -1,11 +1,13 @@
 <head>
-    <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+<!--    <script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
     <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+-->
     <script type="text/javascript" src="//platform.linkedin.com/in.js">
-        api_key:   7775k4hh5m1uvceq
+        api_key:   77eljiyc22csz9
+        onLoad: onLinkedInLoad
         authorize: true
         lang:   nl_NL
-        onLoad: onLinkedInLoad
     </script>
     <title>Hubfinder &copy;</title>
 </head>
@@ -63,13 +65,18 @@
     {{/if}}
 
 {{else}}
-    <div class="container">
-        <div class="jumbotron">
-            <img src="" alt="hubfinder_logo">
-            <h2> Welkom bij HubFinder.</h2>
-            <p> Log in om gebruik te maken van deze applicatie.</p>
-            <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <img src="" alt="hubfinder_logo">
+                <h2> Welkom bij HubFinder.</h2>
+                <p> Log in om gebruik te maken van deze applicatie.</p>
+
+                <script type="IN/Login"></script>
+                <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+            </div>
         </div>
-    </div>
+    </body>
+
 {{/if}}
 </template>

@@ -14,19 +14,20 @@ toTitleCase = function toTitleCase(str) {
 };
 
 updateSkills = function updateSkills(skill, userid, skillID, key) {
-// Voeg de skills toe aan de gebruiker die ingelogd is...
-hubUsers.update(
-	{_id: userid},
-	{$addToSet: {skills: {$each: [skill] }}}
-);
 
-// Teller voor de top 5 skills etc..
-hubSkills.update(
-	{_id: skillID},
-	{$set: {key: key + 1}}
-);
+	// Voeg de skills toe aan de gebruiker die ingelogd is...
+	hubUsers.update(
+		{_id: userid},
+		{$addToSet: {skills: {$each: [skill] }}}
+	);
 
-alert("Skill " + skill + " toegevoegd aan de lijst met skills!");
+	// Teller voor de top 5 skills etc..
+	hubSkills.update(
+		{_id: skillID},
+		{$set: {key: key + 1}}
+	);
+
+	alert("Skill " + skill + " toegevoegd aan de lijst met skills!");
 };
 
 getAllHubSkills = function getAllHubSkills() {

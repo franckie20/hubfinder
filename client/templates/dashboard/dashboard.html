@@ -20,45 +20,45 @@
                       $(function () {
                         $('#graph-container').highcharts({
                             chart: {
-                              type: 'column',
-                              backgroundColor:'#4e5d6c'
+                                type: 'column',
+                                backgroundColor:'#4e5d6c'
                             },
                             legend: {
-                              itemStyle: {
-                                  color: '#FFF',
-                                  fontWeight: 'normal'
-                              },
+                                itemStyle: {
+                                    color: '#FFF',
+                                    fontWeight: 'normal'
+                                }
                             },
                             title: {
-                              text: 'Top 5 skills',
-                              style: {
-                                color: '#FFF',
-                                fontWeight: 'bold'
-                              }
+                                text: 'Top 5 skills',
+                                style: {
+                                    color: '#FFF',
+                                    fontWeight: 'bold'
+                                }
                             },
                             subtitle: {
-                              text: 'Hubfinder',
-                              style: {
-                                color: '#FFF'
-                              }
+                                text: 'Hubfinder',
+                                style: {
+                                    color: '#FFF'
+                                }
                             },
                             credits: {
                                 enabled: false
                             },
                             xAxis: {
-                              type: "category",
-                              labels: {
-                                 style: {
-                                    color: '#FFF'
-                                 }
-                              }
+                                type: "category",
+                                labels: {
+                                    style: {
+                                        color: '#FFF'
+                                    }
+                                }
                             },
                             yAxis: {
-                              labels: {
-                                style: {
-                                  color: '#FFF'
+                                labels: {
+                                    style: {
+                                        color: '#FFF'
+                                    }
                                 }
-                              }
                             },
                             series: [
                                 {
@@ -66,7 +66,7 @@
                                   data: processed_json,
                                   color: '#df691a'
                                 }
-                              ]
+                            ]
                         });
                       });
                       </script>
